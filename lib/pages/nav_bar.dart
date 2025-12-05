@@ -51,21 +51,30 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
     );
   }
 
-  // ===== NAVBAR BUTTON =====
   Widget navbarButton(String title) {
     bool isActive = (title == activeMenu);
+    final Color themeBarColor =
+        Theme.of(context).appBarTheme.backgroundColor ??
+        Theme.of(context).colorScheme.primary;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: TextButton(
         onPressed: () => setActive(title),
+        style: TextButton.styleFrom(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+          backgroundColor: isActive ? Colors.white : Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
         child: Text(
           title,
           style: TextStyle(
             fontSize: 16,
             fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
-            color: isActive ? Colors.black : Colors.white,
-            // : Theme.of(context).colorScheme.onSurface,
+            // teks aktif ikut warna AppBar (teal di light, purple di dark)
+            color: isActive ? themeBarColor : Colors.white,
           ),
         ),
       ),
