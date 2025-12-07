@@ -110,17 +110,31 @@ class _HomePageState extends State<HomePage> {
   }
 
   // ================= DRAWER ITEM =================
-  Widget drawerItem(String title) {
+  Widget _drawerItem({required String title, required IconData icon}) {
     bool isActive = title == activeMenu;
 
+    // gunakan warna teks putih selalu agar kontras terhadap gradient
+    const Color normalTextColor = Colors.white;
+
+    // highlight background untuk item aktif (sesuaikan brightness)
+    final bool isLight = Theme.of(context).brightness == Brightness.light;
+    final Color activeTileColor = isLight
+        ? Colors
+              .white10 // ringan pada theme terang
+        : Colors.black12; // sedikit lebih gelap pada theme gelap
+
     return ListTile(
+      leading: Icon(icon, color: normalTextColor),
       title: Text(
         title,
         style: TextStyle(
-          color: isActive ? Colors.blue : Colors.black,
+          color: normalTextColor, // tetap putih (tidak berubah saat ganti mode)
+          fontSize: 18,
           fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
         ),
       ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      tileColor: isActive ? activeTileColor : Colors.transparent,
       onTap: () {
         setActive(title);
         Navigator.pop(context);
@@ -132,26 +146,69 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const ResponsiveNavbar(),
-
       // Drawer otomatis muncul saat mode mobile
+      // ====== DRAWER (gantikan yang lama) ======
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(child: Text("Menu")),
-            drawerItem("Home"),
-            drawerItem("Produk"),
-            drawerItem("Kontak"),
-            drawerItem("Tentang"),
-          ],
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: Theme.of(context).brightness == Brightness.light
+                  ? [Colors.teal.shade700, Colors.teal.shade300]
+                  : [Colors.deepPurple.shade700, Colors.deepPurple.shade300],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                DrawerHeader(
+                  decoration: const BoxDecoration(color: Colors.transparent),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/EsMamboLasmi.png',
+                        height: 75,
+                        width: 75,
+                      ),
+                      const SizedBox(height: 8),
+                      const Text(
+                        'Es Mambo Lasmi',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                const Divider(color: Colors.white70, indent: 16, endIndent: 16),
+                const SizedBox(height: 8),
+
+                // menu items
+                _drawerItem(title: 'Home', icon: Icons.home_outlined),
+                _drawerItem(title: 'Produk', icon: Icons.local_mall_outlined),
+                _drawerItem(title: 'Kontak', icon: Icons.call_outlined),
+                _drawerItem(title: 'Tentang', icon: Icons.info_outline),
+
+                const SizedBox(height: 16),
+                const Divider(color: Colors.white70, indent: 16, endIndent: 16),
+              ],
+            ),
+          ),
         ),
       ),
-
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("background.png"),
-            fit: BoxFit.fill,
+            image: AssetImage('assets/background.png'),
+            fit: BoxFit.cover,
           ),
         ),
         child: SingleChildScrollView(
@@ -161,16 +218,16 @@ class _HomePageState extends State<HomePage> {
               // ================= CAROUSEL =================
               CarouselSlider(
                 items: [
-                  Image.asset("assets/coklat.jpg", fit: BoxFit.cover),
-                  Image.asset("assets/tiramisu.jpg", fit: BoxFit.cover),
-                  Image.asset("assets/taro.jpg", fit: BoxFit.cover),
-                  Image.asset("assets/red_velvet.jpg", fit: BoxFit.cover),
-                  Image.asset("assets/strawberry.jpg", fit: BoxFit.cover),
-                  Image.asset("assets/green_tea.jpg", fit: BoxFit.cover),
-                  Image.asset("assets/mangga.jpg", fit: BoxFit.cover),
-                  Image.asset("assets/bubble_gum.jpg", fit: BoxFit.cover),
-                  Image.asset("assets/oreo.jpg", fit: BoxFit.cover),
-                  Image.asset("assets/blueberry.jpg", fit: BoxFit.cover),
+                  Image.asset('assets/coklat.jpg', fit: BoxFit.cover),
+                  Image.asset('assets/tiramisu.jpg', fit: BoxFit.cover),
+                  Image.asset('assets/taro.jpg', fit: BoxFit.cover),
+                  Image.asset('assets/red_velvet.jpg', fit: BoxFit.cover),
+                  Image.asset('assets/strawberry.jpg', fit: BoxFit.cover),
+                  Image.asset('assets/green_tea.jpg', fit: BoxFit.cover),
+                  Image.asset('assets/mangga.jpg', fit: BoxFit.cover),
+                  Image.asset('assets/bubble_gum.jpg', fit: BoxFit.cover),
+                  Image.asset('assets/oreo.jpg', fit: BoxFit.cover),
+                  Image.asset('assets/blueberry.jpg', fit: BoxFit.cover),
                 ],
                 options: CarouselOptions(
                   autoPlay: true,
@@ -178,17 +235,13 @@ class _HomePageState extends State<HomePage> {
                   viewportFraction: 1.0,
                 ),
               ),
-
               const SizedBox(height: 20),
-
               // ================= PRODUCT GRID =================
               const Text(
-                "Katalog Rasa",
+                'Katalog Rasa',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-
               const SizedBox(height: 20),
-
               Wrap(
                 spacing: 20,
                 runSpacing: 20,
@@ -256,9 +309,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-
               const SizedBox(height: 40),
-
               // ================= WA BUTTON =================
               ElevatedButton(
                 onPressed: openWhatsApp,
@@ -273,41 +324,20 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 child: const Text(
-                  "Pesan via WhatsApp",
+                  'Pesan via WhatsApp',
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ),
-
-              // const SizedBox(height: 40),
-
-              // // ================= LOKASI =================
-              // const Text(
-              //   "Lokasi Kami",
-              //   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              // ),
-              // const SizedBox(height: 10),
-
-              // SizedBox(
-              //   height: 300,
-              //   width: 600,
-              //   child: Center(
-              //     child: Text(
-              //       "Tambahkan iframe Google Maps di web/index.html",
-              //       style: TextStyle(color: Colors.grey[600]),
-              //     ),
-              //   ),
-              // ),
               const SizedBox(height: 40),
-
               // ================= JAM BUKA =================
               const Text(
-                "Jam Operasional",
+                'Jam Operasional',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
 
               const Text(
-                "Setiap Hari\n07.00 - 20.00",
+                'Setiap Hari\n07.00 - 20.00',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 18),
               ),

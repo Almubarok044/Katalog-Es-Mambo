@@ -26,8 +26,10 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
       elevation: 2,
       centerTitle: false,
 
-      title: Text(
+      title: const Text(
         "Es Mambo Lasmi",
+        overflow: TextOverflow.visible,
+        softWrap: false,
         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
 
