@@ -1,4 +1,3 @@
-import 'package:esmambolasmi/main.dart';
 import 'package:flutter/material.dart';
 
 class ResponsiveNavbar extends StatefulWidget implements PreferredSizeWidget {
@@ -34,20 +33,12 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
       ),
 
       actions: isMobile
-          ? [
-              _themeSwitcher(), // tetap ditampilkan di mobile
-              const SizedBox(width: 8),
-            ]
+          ? [] // tidak ada switch di mobile
           : [
               navbarButton("Home"),
               navbarButton("Produk"),
               navbarButton("Kontak"),
               navbarButton("Tentang"),
-              const SizedBox(width: 20),
-
-              // 🌞 SWITCH MODE
-              _themeSwitcher(),
-
               const SizedBox(width: 20),
             ],
     );
@@ -75,28 +66,10 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
           style: TextStyle(
             fontSize: 16,
             fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
-            // teks aktif ikut warna AppBar (teal di light, purple di dark)
             color: isActive ? themeBarColor : Colors.white,
           ),
         ),
       ),
-    );
-  }
-
-  // ===== THEME SWITCHER (SUN - SWITCH - MOON) =====
-  Widget _themeSwitcher() {
-    return Row(
-      children: [
-        const Icon(Icons.wb_sunny_outlined, size: 22),
-
-        const SizedBox(width: 6),
-
-        DarkModeSwitch(),
-
-        const SizedBox(width: 6),
-
-        const Icon(Icons.nights_stay_outlined, size: 22),
-      ],
     );
   }
 }
