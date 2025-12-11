@@ -45,7 +45,11 @@ Widget themeSwitcher(BuildContext context) {
         const SizedBox(width: 6),
         DarkModeSwitch(),
         const SizedBox(width: 6),
-        const Icon(Icons.nights_stay_outlined, size: 22, color: Colors.black54),
+        Icon(
+          Icons.nights_stay_outlined,
+          size: 22,
+          color: theme.iconTheme.color,
+        ),
       ],
     ),
   );

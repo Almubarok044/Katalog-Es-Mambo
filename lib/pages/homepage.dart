@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
               // ================= CAROUSEL =================
               CarouselSlider(
                 items: [
@@ -66,16 +66,10 @@ class _HomePageState extends State<HomePage> {
                 options: CarouselOptions(
                   autoPlay: true,
                   height: 200,
-                  viewportFraction: 1.0,
+                  viewportFraction: 2.0,
                 ),
               ),
-              const SizedBox(height: 20),
-              // ================= PRODUCT GRID =================
-              const Text(
-                'Katalog Rasa',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
               Wrap(
                 spacing: 20,
                 runSpacing: 20,
@@ -159,21 +153,30 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: const Text(
                   'Pesan via WhatsApp',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               const SizedBox(height: 40),
               // ================= JAM BUKA =================
               const Text(
                 'Jam Operasional',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                ),
               ),
               const SizedBox(height: 10),
 
               const Text(
                 'Setiap Hari\n07.00 - 20.00',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(color: Colors.white, fontSize: 18),
               ),
               const SizedBox(height: 40),
               // ================= FOOTER COPYRIGHT =================

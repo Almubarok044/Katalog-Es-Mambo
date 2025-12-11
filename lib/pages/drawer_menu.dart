@@ -15,8 +15,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
     final theme = Theme.of(context);
 
     return Drawer(
-      // backgroundColor: theme.appBarTheme.backgroundColor,
-      backgroundColor: Colors.white,
+      backgroundColor: theme.drawerTheme.backgroundColor,
       child: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -43,7 +42,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 ],
               ),
             ),
-            const Divider(color: Colors.black, indent: 16, endIndent: 16),
+            Divider(color: theme.iconTheme.color, indent: 16, endIndent: 16),
             // Menu
             drawerItem(context, "Home", Icons.home_outlined),
             drawerItem(context, "Produk", Icons.local_mall_outlined),
@@ -54,7 +53,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
                   "Hub: 0885693665006",
-                  style: const TextStyle(color: Colors.black),
+                  style: TextStyle(color: theme.textTheme.bodyMedium!.color),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -65,11 +64,11 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
                   "✨ Es Mambo Aneka Rasa – Segar, Nikmat, dan Bikin Nostalgia! ✨ Dibuat dari bahan pilihan dengan cita rasa manis, segar, dan lembut di mulut, cocok dinikmati semua kalangan.",
-                  style: const TextStyle(color: Colors.black),
+                  style: TextStyle(color: theme.textTheme.bodyMedium!.color),
                   textAlign: TextAlign.center,
                 ),
               ),
-            const Divider(color: Colors.black, indent: 16, endIndent: 16),
+            Divider(color: theme.iconTheme.color, indent: 16, endIndent: 16),
             const Spacer(),
             themeSwitcher(context),
           ],
@@ -79,14 +78,23 @@ class _DrawerMenuState extends State<DrawerMenu> {
   }
 
   Widget drawerItem(BuildContext context, String title, IconData icon) {
+    final theme = Theme.of(context);
+
     return ListTile(
-      leading: Icon(icon, color: Colors.black),
-      title: Text(title, style: const TextStyle(color: Colors.black)),
+      leading: Icon(
+        icon,
+        color: theme.iconTheme.color, // AUTO light/dark
+      ),
+      title: Text(
+        title,
+        style: TextStyle(
+          color: theme.textTheme.bodyMedium!.color, // AUTO light/dark
+        ),
+      ),
       onTap: () {
         setState(() {
           selectedMenu = title;
         });
-        // Navigator.pop(context); // tutup drawer
       },
     );
   }
