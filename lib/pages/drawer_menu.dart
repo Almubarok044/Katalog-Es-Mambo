@@ -18,59 +18,84 @@ class _DrawerMenuState extends State<DrawerMenu> {
       backgroundColor: theme.drawerTheme.backgroundColor,
       child: SafeArea(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // HEADER
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: theme.appBarTheme.backgroundColor,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+            // === KONTEN SCROLL ===
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.zero,
                 children: [
-                  Image.asset('assets/EsMamboLasmi.png', height: 75),
-                  const SizedBox(height: 10),
-                  const Text(
-                    "Es Mambo Lasmi",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      fontStyle: FontStyle.italic,
+                  DrawerHeader(
+                    decoration: BoxDecoration(
+                      color: theme.appBarTheme.backgroundColor,
                     ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset('assets/EsMamboLasmi.png', height: 75),
+                        const SizedBox(height: 10),
+                        const Text(
+                          "Es Mambo Lasmi",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Divider(
+                    color: theme.iconTheme.color,
+                    indent: 16,
+                    endIndent: 16,
+                  ),
+
+                  drawerItem(context, "Home", Icons.home_outlined),
+                  drawerItem(context, "Produk", Icons.local_mall_outlined),
+                  drawerItem(context, "Kontak", Icons.call_outlined),
+
+                  if (selectedMenu == "Kontak")
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        "Hub: 0885693665006",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: theme.textTheme.bodyMedium!.color,
+                        ),
+                      ),
+                    ),
+
+                  drawerItem(context, "Tentang", Icons.info_outline),
+
+                  if (selectedMenu == "Tentang")
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        "✨ Es Mambo Aneka Rasa – Segar, Nikmat, dan Bikin Nostalgia! ✨ Dibuat dari bahan pilihan dengan cita rasa manis, segar, dan lembut di mulut, cocok dinikmati semua kalangan.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: theme.textTheme.bodyMedium!.color,
+                        ),
+                      ),
+                    ),
+
+                  Divider(
+                    color: theme.iconTheme.color,
+                    indent: 16,
+                    endIndent: 16,
                   ),
                 ],
               ),
             ),
-            Divider(color: theme.iconTheme.color, indent: 16, endIndent: 16),
-            // Menu
-            drawerItem(context, "Home", Icons.home_outlined),
-            drawerItem(context, "Produk", Icons.local_mall_outlined),
-            drawerItem(context, "Kontak", Icons.call_outlined),
-            // === INFORMASI TENTANG ===
-            if (selectedMenu == "Kontak")
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  "Hub: 0885693665006",
-                  style: TextStyle(color: theme.textTheme.bodyMedium!.color),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            drawerItem(context, "Tentang", Icons.info_outline),
-            // === INFORMASI TENTANG ===
-            if (selectedMenu == "Tentang")
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  "✨ Es Mambo Aneka Rasa – Segar, Nikmat, dan Bikin Nostalgia! ✨ Dibuat dari bahan pilihan dengan cita rasa manis, segar, dan lembut di mulut, cocok dinikmati semua kalangan.",
-                  style: TextStyle(color: theme.textTheme.bodyMedium!.color),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            Divider(color: theme.iconTheme.color, indent: 16, endIndent: 16),
-            const Spacer(),
-            themeSwitcher(context),
+
+            // === FOOTER (TETAP DI BAWAH) ===
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: themeSwitcher(context),
+            ),
           ],
         ),
       ),

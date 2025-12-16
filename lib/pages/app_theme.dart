@@ -6,7 +6,7 @@ class AppTheme {
     brightness: Brightness.light,
 
     appBarTheme: AppBarTheme(
-      color: Colors.teal[300],
+      backgroundColor: Colors.teal[300],
       iconTheme: const IconThemeData(color: Colors.white),
     ),
 
@@ -26,7 +26,7 @@ class AppTheme {
     brightness: Brightness.dark,
 
     appBarTheme: AppBarTheme(
-      color: Color(0xff212D3B),
+      backgroundColor: Color(0xff212D3B),
       iconTheme: const IconThemeData(color: Colors.white),
     ),
 
