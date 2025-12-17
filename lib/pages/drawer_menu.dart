@@ -14,12 +14,17 @@ class _DrawerMenuState extends State<DrawerMenu> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+
     return Drawer(
       backgroundColor: theme.drawerTheme.backgroundColor,
       child: SafeArea(
+        top: true,
+        bottom: false,
         child: Column(
           children: [
-            // === KONTEN SCROLL ===
+            // === SCROLL AREA ===
             Expanded(
               child: ListView(
                 padding: EdgeInsets.zero,
@@ -58,7 +63,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
 
                   if (selectedMenu == "Kontak")
                     Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(16),
                       child: Text(
                         "Hub: 0885693665006",
                         textAlign: TextAlign.center,
@@ -72,7 +77,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
 
                   if (selectedMenu == "Tentang")
                     Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(16),
                       child: Text(
                         "✨ Es Mambo Aneka Rasa – Segar, Nikmat, dan Bikin Nostalgia! ✨ Dibuat dari bahan pilihan dengan cita rasa manis, segar, dan lembut di mulut, cocok dinikmati semua kalangan.",
                         textAlign: TextAlign.center,
@@ -87,15 +92,15 @@ class _DrawerMenuState extends State<DrawerMenu> {
                     indent: 16,
                     endIndent: 16,
                   ),
+
+                  // ✅ LANDSCAPE: switch ikut scroll
+                  if (isLandscape) themeSwitcher(context),
                 ],
               ),
             ),
 
-            // === FOOTER (TETAP DI BAWAH) ===
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: themeSwitcher(context),
-            ),
+            // ✅ PORTRAIT: switch nempel bawah
+            if (!isLandscape) themeSwitcher(context),
           ],
         ),
       ),
