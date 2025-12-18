@@ -1,5 +1,7 @@
 import 'package:esmambolasmi/pages/theme_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DrawerMenu extends StatefulWidget {
   const DrawerMenu({super.key});
@@ -9,6 +11,17 @@ class DrawerMenu extends StatefulWidget {
 }
 
 class _DrawerMenuState extends State<DrawerMenu> {
+  // =============== WA FUNCTION ===============
+  void openWhatsApp() async {
+    final Uri url = Uri.parse(
+      "https://wa.me/6285693665006?text=Halo%20saya%20ingin%20pesan%20Es%20Mambo%20Lasmi",
+    );
+
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw Exception("Tidak dapat membuka WhatsApp");
+    }
+  }
+
   String selectedMenu = "";
   @override
   Widget build(BuildContext context) {
@@ -20,7 +33,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
     return Drawer(
       backgroundColor: theme.drawerTheme.backgroundColor,
       child: SafeArea(
-        top: true,
+        top: false,
         bottom: false,
         child: Column(
           children: [
@@ -64,11 +77,22 @@ class _DrawerMenuState extends State<DrawerMenu> {
                   if (selectedMenu == "Kontak")
                     Padding(
                       padding: const EdgeInsets.all(16),
-                      child: Text(
-                        "Hub: 0885693665006",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: theme.textTheme.bodyMedium!.color,
+                      child: TextButton.icon(
+                        style: TextButton.styleFrom(
+                          foregroundColor: theme.textTheme.bodyMedium!.color,
+                          backgroundColor:
+                              Colors.transparent, // kalau mau transparan
+                        ),
+                        onPressed: () {
+                          // Ganti dengan nomor WA customer
+                          openWhatsApp();
+                        },
+                        icon: FaIcon(FontAwesomeIcons.whatsapp),
+                        label: Text(
+                          'Hubungi kami di WhatsApp',
+                          style: TextStyle(
+                            color: theme.textTheme.bodyMedium!.color,
+                          ),
                         ),
                       ),
                     ),

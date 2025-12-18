@@ -16,6 +16,9 @@ class MyApp extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
     final appThemeState = ref.watch(appThemeStateNotifier);
+
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.tealLightTheme,

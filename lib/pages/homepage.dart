@@ -4,6 +4,7 @@ import 'package:esmambolasmi/pages/footer.dart';
 import 'package:esmambolasmi/pages/nav_bar.dart';
 import 'package:esmambolasmi/pages/product_card.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
@@ -138,29 +139,6 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               const SizedBox(height: 40),
-              // ================= WA BUTTON =================
-              ElevatedButton(
-                onPressed: openWhatsApp,
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 40,
-                    vertical: 15,
-                  ),
-                  backgroundColor: Colors.green,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                ),
-                child: const Text(
-                  'Pesan via WhatsApp',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 40),
               // ================= JAM BUKA =================
               const Text(
                 'Jam Operasional',
@@ -184,6 +162,17 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Pesan via WhatsApp',
+        splashColor: Colors.greenAccent,
+        backgroundColor: Colors.green,
+        elevation: 10,
+        child: FaIcon(FontAwesomeIcons.whatsapp, color: Colors.white, size: 37),
+        onPressed: () {
+          // buka WA dengan nomor tertentu
+          openWhatsApp();
+        },
       ),
     );
   }
