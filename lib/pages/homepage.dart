@@ -15,10 +15,46 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // =============== WA FUNCTION ===============
-  void openWhatsApp() async {
+  final ScrollController scrollController = ScrollController();
+  final GlobalKey footerKey = GlobalKey();
+
+  bool isFooterVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    scrollController.addListener(handleScroll);
+  }
+
+  @override
+  void dispose() {
+    scrollController.removeListener(handleScroll);
+    scrollController.dispose();
+    super.dispose();
+  }
+
+  void handleScroll() {
+    if (footerKey.currentContext == null) return;
+
+    final RenderBox box =
+        footerKey.currentContext!.findRenderObject() as RenderBox;
+
+    final Offset footerOffset = box.localToGlobal(Offset.zero);
+    final double screenHeight = MediaQuery.of(context).size.height;
+
+    final bool visible = footerOffset.dy < screenHeight - 80;
+
+    if (visible != isFooterVisible) {
+      setState(() => isFooterVisible = visible);
+    }
+  }
+
+  // =============== WA FUNCTION ES MAMBO ===============
+  void openWhatsAppEsMambo() async {
+    const String message = "Halo, saya ingin pesan Es Mambo Lasmi";
+
     final Uri url = Uri.parse(
-      "https://wa.me/6285693665006?text=Halo%20saya%20ingin%20pesan%20Es%20Mambo%20Lasmi",
+      "https://wa.me/6285693665006?text=${Uri.encodeComponent(message)}",
     );
 
     if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
@@ -42,27 +78,43 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/background.png'),
+            image: AssetImage('assets/background/background.png'),
             fit: BoxFit.cover,
           ),
         ),
         child: SingleChildScrollView(
+          controller: scrollController,
           child: Column(
             children: [
               const SizedBox(height: 40),
               // ================= CAROUSEL =================
               CarouselSlider(
                 items: [
-                  Image.asset('assets/coklat.jpg', fit: BoxFit.cover),
-                  Image.asset('assets/tiramisu.jpg', fit: BoxFit.cover),
-                  Image.asset('assets/taro.jpg', fit: BoxFit.cover),
-                  Image.asset('assets/red_velvet.jpg', fit: BoxFit.cover),
-                  Image.asset('assets/strawberry.jpg', fit: BoxFit.cover),
-                  Image.asset('assets/green_tea.jpg', fit: BoxFit.cover),
-                  Image.asset('assets/mangga.jpg', fit: BoxFit.cover),
-                  Image.asset('assets/bubble_gum.jpg', fit: BoxFit.cover),
-                  Image.asset('assets/oreo.jpg', fit: BoxFit.cover),
-                  Image.asset('assets/blueberry.jpg', fit: BoxFit.cover),
+                  Image.asset('assets/product/coklat.jpg', fit: BoxFit.cover),
+                  Image.asset('assets/product/tiramisu.jpg', fit: BoxFit.cover),
+                  Image.asset('assets/product/taro.jpg', fit: BoxFit.cover),
+                  Image.asset(
+                    'assets/product/red_velvet.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                  Image.asset(
+                    'assets/product/strawberry.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                  Image.asset(
+                    'assets/product/green_tea.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                  Image.asset('assets/product/mangga.jpg', fit: BoxFit.cover),
+                  Image.asset(
+                    'assets/product/bubble_gum.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                  Image.asset('assets/product/oreo.jpg', fit: BoxFit.cover),
+                  Image.asset(
+                    'assets/product/blueberry.jpg',
+                    fit: BoxFit.cover,
+                  ),
                 ],
                 options: CarouselOptions(
                   autoPlay: true,
@@ -80,61 +132,61 @@ class _HomePageState extends State<HomePage> {
                     "Coklat",
                     "🍫",
                     "Coklat Rasa klasik yang tak pernah salah! Manisnya coklat bikin nagih dari hisapan pertama.",
-                    "assets/coklat.jpg",
+                    "assets/product/coklat.jpg",
                   ),
                   productCard(
                     "Tiramisu",
                     "☕",
                     "Tiramisu Kombinasi kopi ringan dan krim manis ala Italia, pas banget buat kamu yang suka rasa elegan dan unik.",
-                    "assets/tiramisu.jpg",
+                    "assets/product/tiramisu.jpg",
                   ),
                   productCard(
                     "Taro",
                     "🌸",
                     "Taro Rasa manis lembut dari talas ungu yang khas, bikin suasana ngemil lebih seru dan berwarna.",
-                    "assets/taro.jpg",
+                    "assets/product/taro.jpg",
                   ),
                   productCard(
                     "Red Velvet",
                     "🍰",
                     "Red Velvet Manis gurih dengan sentuhan creamy, kini hadir dalam bentuk es mambo yang segar.",
-                    "assets/red_velvet.jpg",
+                    "assets/product/red_velvet.jpg",
                   ),
                   productCard(
                     "Strawberry",
                     "🍓",
                     "Strawberry Asam manis buah stroberi segar, bikin setiap gigitan terasa menyegarkan dan ceria.",
-                    "assets/strawberry.jpg",
+                    "assets/product/strawberry.jpg",
                   ),
                   productCard(
                     "Green Tea",
                     "🍵",
                     "Green Tea Segarnya teh hijau dengan aroma khas yang menenangkan, cocok untuk pecinta rasa oriental.",
-                    "assets/green_tea.jpg",
+                    "assets/product/green_tea.jpg",
                   ),
                   productCard(
                     "Mangga",
                     "🥭",
                     "Mangga Rasa tropis mangga yang manis dan juicy, sempurna untuk dinikmati di siang yang panas.",
-                    "assets/mangga.jpg",
+                    "assets/product/mangga.jpg",
                   ),
                   productCard(
                     "Bubble Gum",
                     "🍬",
                     " Bubble Gum Manisnya permen karet dalam bentuk es mambo, warna-warni ceria dengan rasa yang bikin nostalgia.",
-                    "assets/bubble_gum.jpg",
+                    "assets/product/bubble_gum.jpg",
                   ),
                   productCard(
                     "Oreo",
                     "🍪",
                     "Oreo Crunchy dan creamy ala biskuit oreo yang legendaris, berpadu dengan lembutnya es mambo.",
-                    "assets/oreo.jpg",
+                    "assets/product/oreo.jpg",
                   ),
                   productCard(
                     "Blueberry",
                     "🍇",
                     "Rasa segar buah blueberry dengan sentuhan manis-asam yang pas, bikin lidah langsung jatuh cinta.",
-                    "assets/blueberry.jpg",
+                    "assets/product/blueberry.jpg",
                   ),
                 ],
               ),
@@ -158,21 +210,46 @@ class _HomePageState extends State<HomePage> {
               ),
               const SizedBox(height: 40),
               // ================= FOOTER COPYRIGHT =================
-              buildFooter(context),
+              buildFooter(key: footerKey, context),
             ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Pesan via WhatsApp',
-        splashColor: Colors.greenAccent,
-        backgroundColor: Colors.green,
-        elevation: 10,
-        child: FaIcon(FontAwesomeIcons.whatsapp, color: Colors.white, size: 37),
-        onPressed: () {
-          // buka WA dengan nomor tertentu
-          openWhatsApp();
-        },
+      floatingActionButton: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 300),
+        child: isFooterVisible
+            ? FloatingActionButton(
+                key: const ValueKey('top'),
+                tooltip: 'Kembali ke atas',
+                splashColor: Colors.blueAccent,
+                backgroundColor: Colors.blueGrey,
+                elevation: 10,
+                onPressed: () {
+                  scrollController.animateTo(
+                    0,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeOut,
+                  );
+                },
+                child: const Icon(
+                  Icons.keyboard_arrow_up,
+                  color: Colors.white,
+                  size: 37,
+                ),
+              )
+            : FloatingActionButton(
+                key: const ValueKey('wa'),
+                tooltip: 'Pesan via WhatsApp',
+                splashColor: Colors.greenAccent,
+                backgroundColor: Colors.green,
+                elevation: 10,
+                onPressed: openWhatsAppEsMambo,
+                child: const FaIcon(
+                  FontAwesomeIcons.whatsapp,
+                  color: Colors.white,
+                  size: 37,
+                ),
+              ),
       ),
     );
   }

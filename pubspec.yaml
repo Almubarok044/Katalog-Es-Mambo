@@ -39,15 +39,15 @@ dependencies:
   url_launcher: ^6.3.2
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.14.4
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.14.4
 
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/EsMamboLasmi.png"
+  image_path: "assets/icon/EsMamboLasmi.png"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
@@ -59,18 +59,22 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/coklat.jpg
-    - assets/tiramisu.jpg
-    - assets/taro.jpg
-    - assets/red_velvet.jpg
-    - assets/strawberry.jpg
-    - assets/green_tea.jpg
-    - assets/mangga.jpg
-    - assets/bubble_gum.jpg
-    - assets/oreo.jpg
-    - assets/blueberry.jpg
-    - assets/background.png
-    - assets/EsMamboLasmi.png
+    - assets/flutter/icon_flutter/icon_flutter.png
+    - assets/flutter/lockup_flutter_vertical/lockup_flutter_vertical_wht.png
+    - assets/flutter/lockup_built-w-flutter/lockup_built-w-flutter.png
+    - assets/flutter/lockup_built-w-flutter/lockup_built-w-flutter_wht.png
+    - assets/product/coklat.jpg
+    - assets/product/tiramisu.jpg
+    - assets/product/taro.jpg
+    - assets/product/red_velvet.jpg
+    - assets/product/strawberry.jpg
+    - assets/product/green_tea.jpg
+    - assets/product/mangga.jpg
+    - assets/product/bubble_gum.jpg
+    - assets/product/oreo.jpg
+    - assets/product/blueberry.jpg
+    - assets/background/background.png
+    - assets/icon/EsMamboLasmi.png
     # - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
