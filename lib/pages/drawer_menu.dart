@@ -12,9 +12,11 @@ class DrawerMenu extends StatefulWidget {
 
 class _DrawerMenuState extends State<DrawerMenu> {
   // =============== WA FUNCTION ===============
-  void openWhatsApp() async {
+  void openWhatsAppEsMambo() async {
+    const String message = "Halo, saya ingin pesan Es Mambo Lasmi";
+
     final Uri url = Uri.parse(
-      "https://wa.me/6285693665006?text=Halo%20saya%20ingin%20pesan%20Es%20Mambo%20Lasmi",
+      "https://wa.me/6285693665006?text=${Uri.encodeComponent(message)}",
     );
 
     if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
@@ -49,7 +51,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('assets/EsMamboLasmi.png', height: 75),
+                        Image.asset('assets/icon/EsMamboLasmi.png', height: 75),
                         const SizedBox(height: 10),
                         const Text(
                           "Es Mambo Lasmi",
@@ -85,7 +87,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                         ),
                         onPressed: () {
                           // Ganti dengan nomor WA customer
-                          openWhatsApp();
+                          openWhatsAppEsMambo();
                         },
                         icon: FaIcon(FontAwesomeIcons.whatsapp),
                         label: Text(
