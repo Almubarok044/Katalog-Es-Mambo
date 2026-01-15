@@ -1,6 +1,6 @@
-import 'package:esmambolasmi/pages/app_theme.dart';
-import 'package:esmambolasmi/pages/homepage.dart';
-import 'package:esmambolasmi/pages/theme_provider.dart';
+import 'package:esmambolasmi/theme/app_theme.dart';
+import 'package:esmambolasmi/features/home/homepage.dart';
+import 'package:esmambolasmi/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

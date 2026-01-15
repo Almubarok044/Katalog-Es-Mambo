@@ -31,7 +31,6 @@ Widget themeSwitcher(BuildContext context) {
         Text(
           "Switch Mode",
           style: TextStyle(
-            color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.bold,
             fontStyle: FontStyle.italic,

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// ===============================
@@ -50,4 +52,32 @@ Future<void> _launch(Uri url) async {
   if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
     throw Exception("Tidak dapat membuka ${url.toString()}");
   }
+}
+
+Widget socialIcon({
+  required IconData icon,
+  required VoidCallback onTap,
+  Color backgroundColor = Colors.grey,
+  Color splashColor = Colors.white24,
+  Color iconColor = Colors.white,
+  double size = 56, // default FAB size
+  double elevation = 8,
+}) {
+  return Material(
+    color: backgroundColor,
+    elevation: elevation,
+    shape: const CircleBorder(),
+    clipBehavior: Clip.antiAlias,
+    child: InkWell(
+      onTap: onTap,
+      splashColor: splashColor,
+      child: SizedBox(
+        width: size,
+        height: size,
+        child: Center(
+          child: FaIcon(icon, size: size * 0.5, color: iconColor),
+        ),
+      ),
+    ),
+  );
 }

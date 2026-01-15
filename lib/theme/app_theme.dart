@@ -5,9 +5,9 @@ class AppTheme {
   static final tealLightTheme = ThemeData(
     brightness: Brightness.light,
 
-    appBarTheme: AppBarTheme(
-      backgroundColor: Colors.teal[300],
-      iconTheme: const IconThemeData(color: Colors.white),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.tealAccent,
+      foregroundColor: Colors.black, // 🔥 INI KUNCINYA
     ),
 
     // Tambahan (tidak mengubah struktur lama)
@@ -18,16 +18,16 @@ class AppTheme {
     ),
 
     // textTheme asal kamu → putih → saya BENERKAN ke hitam untuk light mode
-    textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.black)),
+    textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.black87)),
   );
 
   // ----------------- DARK MODE (PURPLE) -----------------
   static final darkTheme = ThemeData(
     brightness: Brightness.dark,
 
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: Color(0xff212D3B),
-      iconTheme: const IconThemeData(color: Colors.white),
+      foregroundColor: Colors.white,
     ),
 
     // Ini tetap seperti kode kamu (saya tidak ubah)
