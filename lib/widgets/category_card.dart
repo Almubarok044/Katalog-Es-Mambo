@@ -41,6 +41,7 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return GestureDetector(
       onTap: press,
       child: Column(
@@ -59,7 +60,7 @@ class CategoryCard extends StatelessWidget {
           Text(
             text,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 12, color: Colors.black),
+            style: theme.textTheme.bodySmall,
           ),
         ],
       ),

@@ -16,6 +16,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return SizedBox(
       width: width,
       child: GestureDetector(
@@ -38,7 +39,7 @@ class ProductCard extends StatelessWidget {
             Text(
               textAlign: TextAlign.start,
               product.title,
-              style: const TextStyle(color: Colors.black),
+              style: theme.textTheme.bodyMedium,
               maxLines: 2,
             ),
             Row(

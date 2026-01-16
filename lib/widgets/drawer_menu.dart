@@ -20,7 +20,7 @@ class DrawerMenu extends StatelessWidget {
         MediaQuery.of(context).orientation == Orientation.landscape;
 
     return Drawer(
-      backgroundColor: theme.drawerTheme.backgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       child: SafeArea(
         top: false,
         bottom: false,
@@ -99,6 +99,7 @@ class DrawerMenu extends StatelessWidget {
 
     return ListTile(
       selected: isActive,
+      splashColor: Colors.blueGrey,
       leading: Icon(
         icon,
         color: theme.iconTheme.color, // AUTO light/dark
@@ -106,6 +107,7 @@ class DrawerMenu extends StatelessWidget {
       title: Text(
         label,
         style: TextStyle(
+          fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
           color: theme.textTheme.bodyMedium!.color, // AUTO light/dark
         ),
       ),

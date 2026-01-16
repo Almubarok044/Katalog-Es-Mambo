@@ -105,8 +105,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: ResponsiveNavbar(
         onMenuSelected: onNavbarMenuSelected,
         activeMenu: activeMenu,
@@ -187,17 +189,15 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(height: 10),
                     const PopularProducts(),
                     const SizedBox(height: 20),
-                    const Text(
+                    Text(
                       'Jam Operasional',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: theme.textTheme.titleLarge?.copyWith(
                         fontSize: 26,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                         letterSpacing: 0.5,
-                        color: Colors.black87,
                       ),
                     ),
-
                     const SizedBox(height: 10),
                     Center(
                       child: SizedBox(
