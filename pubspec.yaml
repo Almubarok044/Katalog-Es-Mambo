@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   carousel_slider: ^5.1.1
+  cloud_firestore: ^6.2.0
   cupertino_icons: ^1.0.8
   firebase_core: ^4.2.1
   flutter:
@@ -64,19 +65,27 @@ flutter:
     - assets/flutter/lockup_flutter_vertical/lockup_flutter_vertical_wht.png
     - assets/flutter/lockup_built-w-flutter/lockup_built-w-flutter.png
     - assets/flutter/lockup_built-w-flutter/lockup_built-w-flutter_wht.png
-    - assets/product/coklat.jpg
-    - assets/product/tiramisu.jpg
-    - assets/product/taro.jpg
-    - assets/product/red_velvet.jpg
-    - assets/product/strawberry.jpg
-    - assets/product/green_tea.jpg
-    - assets/product/mangga.jpg
-    - assets/product/bubble_gum.jpg
-    - assets/product/oreo.jpg
-    - assets/product/blueberry.jpg
+    - assets/product/esmambo/coklat.jpg
+    - assets/product/esmambo/tiramisu.jpg
+    - assets/product/esmambo/taro.jpg
+    - assets/product/esmambo/red_velvet.jpg
+    - assets/product/esmambo/strawberry.jpg
+    - assets/product/esmambo/green_tea.jpg
+    - assets/product/esmambo/mangga.jpg
+    - assets/product/esmambo/bubble_gum.jpg
+    - assets/product/esmambo/oreo.jpg
+    - assets/product/esmambo/blueberry.jpg
+    - assets/product/esmambo/klasiktapiasik.png
     - assets/background/background.png
     - assets/icon/EsMamboLasmi.png
     - assets/icon/JamBuka.png
+    - assets/product/esjelly/strawberry.png
+    - assets/product/esjelly/melon.png
+    - assets/product/esjelly/coklat.png
+    - assets/product/esjelly/mangga.png
+    - assets/product/esjelly/capuccino.png
+    - assets/product/kue/kuenastar1.png
+
     # - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

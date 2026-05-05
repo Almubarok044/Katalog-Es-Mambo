@@ -1,12 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:esmambolasmi/features/products/products.dart';
 import 'package:esmambolasmi/widgets/category_card.dart';
-import 'package:esmambolasmi/features/home/hero_section.dart';
-import 'package:esmambolasmi/features/home/popular_products.dart';
+import 'package:esmambolasmi/widgets/hero_section.dart';
+import 'package:esmambolasmi/widgets/popular_products.dart';
 import 'package:esmambolasmi/features/about/about.dart';
 import 'package:esmambolasmi/widgets/drawer_menu.dart';
 import 'package:esmambolasmi/widgets/footer.dart';
 import 'package:esmambolasmi/widgets/nav_bar.dart';
-import 'package:esmambolasmi/features/products/products.dart';
+import 'package:esmambolasmi/widgets/special_offers.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -91,14 +92,22 @@ class _HomePageState extends State<HomePage> {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (_) => const Products()),
-        );
+        ).then((_) {
+          setState(() {
+            activeMenu = MenuType.home;
+          });
+        });
         break;
 
       case MenuType.about:
         Navigator.push(
           context,
           MaterialPageRoute(builder: (_) => const About()),
-        );
+        ).then((_) {
+          setState(() {
+            activeMenu = MenuType.home;
+          });
+        });
         break;
     }
   }
@@ -140,43 +149,43 @@ class _HomePageState extends State<HomePage> {
                     CarouselSlider(
                       items: [
                         Image.asset(
-                          'assets/product/coklat.jpg',
+                          'assets/product/esmambo/coklat.jpg',
                           fit: BoxFit.cover,
                         ),
                         Image.asset(
-                          'assets/product/tiramisu.jpg',
+                          'assets/product/esmambo/tiramisu.jpg',
                           fit: BoxFit.cover,
                         ),
                         Image.asset(
-                          'assets/product/taro.jpg',
+                          'assets/product/esmambo/taro.jpg',
                           fit: BoxFit.cover,
                         ),
                         Image.asset(
-                          'assets/product/red_velvet.jpg',
+                          'assets/product/esmambo/red_velvet.jpg',
                           fit: BoxFit.cover,
                         ),
                         Image.asset(
-                          'assets/product/strawberry.jpg',
+                          'assets/product/esmambo/strawberry.jpg',
                           fit: BoxFit.cover,
                         ),
                         Image.asset(
-                          'assets/product/green_tea.jpg',
+                          'assets/product/esmambo/green_tea.jpg',
                           fit: BoxFit.cover,
                         ),
                         Image.asset(
-                          'assets/product/mangga.jpg',
+                          'assets/product/esmambo/mangga.jpg',
                           fit: BoxFit.cover,
                         ),
                         Image.asset(
-                          'assets/product/bubble_gum.jpg',
+                          'assets/product/esmambo/bubble_gum.jpg',
                           fit: BoxFit.cover,
                         ),
                         Image.asset(
-                          'assets/product/oreo.jpg',
+                          'assets/product/esmambo/oreo.jpg',
                           fit: BoxFit.cover,
                         ),
                         Image.asset(
-                          'assets/product/blueberry.jpg',
+                          'assets/product/esmambo/blueberry.jpg',
                           fit: BoxFit.cover,
                         ),
                       ],
@@ -186,6 +195,8 @@ class _HomePageState extends State<HomePage> {
                         viewportFraction: 2.0,
                       ),
                     ),
+                    const SizedBox(height: 10),
+                    SpecialOffers(),
                     const SizedBox(height: 10),
                     const PopularProducts(),
                     const SizedBox(height: 20),

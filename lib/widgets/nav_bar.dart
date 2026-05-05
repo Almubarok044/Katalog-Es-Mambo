@@ -19,8 +19,6 @@ class ResponsiveNavbar extends StatelessWidget implements PreferredSizeWidget {
     final bool isMobile = MediaQuery.of(context).size.width < 700;
 
     return AppBar(
-      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-      titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
       elevation: 2,
       centerTitle: false,
       toolbarHeight: 60.2,

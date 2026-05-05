@@ -6,9 +6,9 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
-      {"icon": Icons.cake, "text": "Cokelat"},
-      {"icon": Icons.icecream, "text": "Strawberry"},
-      {"icon": Icons.cookie, "text": "Melon"},
+      {"icon": Icons.icecream, "text": "Es Mambo"},
+      {"icon": Icons.bakery_dining, "text": "Nastar"},
+      {"icon": Icons.bubble_chart, "text": "Es Jelly"},
     ];
 
     return Wrap(
