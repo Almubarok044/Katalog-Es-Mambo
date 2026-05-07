@@ -1,5 +1,5 @@
 import 'package:esmambolasmi/theme/app_theme.dart';
-import 'package:esmambolasmi/features/home/homepage.dart';
+import 'package:esmambolasmi/features/home/home_screen.dart';
 import 'package:esmambolasmi/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -26,7 +26,7 @@ class MyApp extends HookConsumerWidget {
       themeMode: appThemeState.isDarkModeEnabled
           ? ThemeMode.dark
           : ThemeMode.light,
-      home: HomePage(),
+      home: HomeScreen(),
     );
   }
 }

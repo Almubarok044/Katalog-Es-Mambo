@@ -15,8 +15,10 @@ class SectionTitle extends StatelessWidget {
       children: [
         Text(
           title,
-          style: theme.textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.w600,
+          style: theme.textTheme.titleLarge?.copyWith(
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+            color: theme.primaryColor,
           ),
         ),
         TextButton(

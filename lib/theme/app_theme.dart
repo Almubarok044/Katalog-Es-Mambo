@@ -1,52 +1,95 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // ----------------- LIGHT MODE (TEAL) -----------------
+  // ----------------- LIGHT MODE (EARTHY PASTEL) -----------------
   static final tealLightTheme = ThemeData(
     brightness: Brightness.light,
+    scaffoldBackgroundColor: const Color(0xFFFFF8E7), // Warm cream background
+    primaryColor: const Color(0xFFD4A373), // Earthy tan
+    cardColor: Colors.white, // Distinct card background
 
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.tealAccent,
-      foregroundColor: Colors.black, // 🔥 INI KUNCINYA
+      backgroundColor: Color(0xFFD4A373), // Warm tan
+      foregroundColor: Colors.white, // White text on appbar
+      elevation: 2,
+      shadowColor: Colors.black26,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(25),
+        ),
+      ),
     ),
 
-    // Tambahan (tidak mengubah struktur lama)
-    drawerTheme: const DrawerThemeData(backgroundColor: Colors.white),
+    drawerTheme: const DrawerThemeData(
+      backgroundColor: Color(0xFFFFF8E7),
+    ),
 
     iconTheme: const IconThemeData(
-      color: Colors.black87, // icon light mode
+      color: Color(0xFF5D4037), // Dark brown icons
     ),
 
-    // textTheme asal kamu → putih → saya BENERKAN ke hitam untuk light mode
-    textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.black87)),
-  );
-
-  // ----------------- DARK MODE (PURPLE) -----------------
-  static final darkTheme = ThemeData(
-    brightness: Brightness.dark,
-
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Color(0xff212D3B),
+    textTheme: GoogleFonts.outfitTextTheme(
+      const TextTheme(
+        bodyMedium: TextStyle(color: Color(0xFF4E342E)), // Dark brown text for better readability
+        titleLarge: TextStyle(color: Color(0xFF3E2723), fontWeight: FontWeight.bold),
+      ),
+    ),
+    
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: Color(0xFFBC6C25), // Deeper earthy tone
       foregroundColor: Colors.white,
     ),
+  );
 
-    // Ini tetap seperti kode kamu (saya tidak ubah)
-    colorScheme: ColorScheme.dark(primary: Colors.grey.shade500),
+  // ----------------- DARK MODE (ELEGANT EARTHY) -----------------
+  static final darkTheme = ThemeData(
+    brightness: Brightness.dark,
+    scaffoldBackgroundColor: const Color(0xFF2C241B), // Dark earthy brown
+    primaryColor: const Color(0xFFD4A373),
+    cardColor: const Color(0xFF3E2723), // Distinct dark card background
 
-    // Tambahan drawer + icon
-    drawerTheme: DrawerThemeData(backgroundColor: Color(0xff17212B)),
-
-    iconTheme: const IconThemeData(
-      color: Colors.white, // icon dark mode
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Color(0xFF1A1410),
+      foregroundColor: Color(0xFFE6CCB2), // Soft pastel text
+      elevation: 2,
+      shadowColor: Colors.black54,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(25),
+        ),
+      ),
     ),
 
-    // textTheme asli kamu → putih → dibiarkan (benar untuk dark mode)
-    textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+    colorScheme: const ColorScheme.dark(
+      primary: Color(0xFFD4A373),
+      secondary: Color(0xFFFAEDCD),
+    ),
+
+    drawerTheme: const DrawerThemeData(
+      backgroundColor: Color(0xFF1E1814),
+    ),
+
+    iconTheme: const IconThemeData(
+      color: Color(0xFFE6CCB2),
+    ),
+
+    textTheme: GoogleFonts.outfitTextTheme(
+      const TextTheme(
+        bodyMedium: TextStyle(color: Color(0xFFE6CCB2)),
+        titleLarge: TextStyle(color: Color(0xFFFAEDCD), fontWeight: FontWeight.bold),
+      ),
+    ),
 
     switchTheme: SwitchThemeData(
       trackOutlineColor: WidgetStateProperty.resolveWith((states) {
-        return Colors.grey.shade500;
+        return const Color(0xFFD4A373);
       }),
+    ),
+    
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: Color(0xFFD4A373),
+      foregroundColor: Color(0xFF1A1410),
     ),
   );
 }

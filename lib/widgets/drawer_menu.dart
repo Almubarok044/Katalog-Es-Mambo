@@ -1,10 +1,10 @@
-import 'package:esmambolasmi/features/home/homepage.dart';
+import 'package:esmambolasmi/features/home/home_screen.dart';
 import 'package:esmambolasmi/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 
 class DrawerMenu extends StatelessWidget {
   final MenuType activeMenu;
-  final Function(MenuType) onMenuSelected;
+  final void Function(MenuType) onMenuSelected;
 
   const DrawerMenu({
     super.key,
@@ -59,19 +59,19 @@ class DrawerMenu extends StatelessWidget {
                   drawerItem(
                     context,
                     MenuType.home,
-                    "Home",
+                    "Beranda",
                     Icons.home_outlined,
                   ),
                   drawerItem(
                     context,
                     MenuType.product,
-                    "Product",
+                    "Produk",
                     Icons.local_mall_outlined,
                   ),
                   drawerItem(
                     context,
                     MenuType.about,
-                    "About",
+                    "Tentang",
                     Icons.info_outline,
                   ),
                 ],
@@ -96,22 +96,45 @@ class DrawerMenu extends StatelessWidget {
   ) {
     final bool isActive = menu == activeMenu;
     final theme = Theme.of(context);
+    final primaryColor = theme.primaryColor;
 
-    return ListTile(
-      selected: isActive,
-      splashColor: Colors.blueGrey,
-      leading: Icon(
-        icon,
-        color: theme.iconTheme.color, // AUTO light/dark
-      ),
-      title: Text(
-        label,
-        style: TextStyle(
-          fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
-          color: theme.textTheme.bodyMedium!.color, // AUTO light/dark
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      child: Material(
+        color: isActive
+            ? primaryColor.withValues(alpha: 0.15)
+            : Colors.transparent,
+        borderRadius: BorderRadius.circular(15),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(15),
+          splashColor: primaryColor.withValues(alpha: 0.2),
+          highlightColor: primaryColor.withValues(alpha: 0.1),
+          onTap: () => onMenuSelected(menu),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+            child: Row(
+              children: [
+                Icon(
+                  icon,
+                  color: isActive ? primaryColor : theme.iconTheme.color,
+                ),
+                const SizedBox(width: 20),
+                Text(
+                  label,
+                  style: TextStyle(
+                    fontWeight: isActive ? FontWeight.bold : FontWeight.w500,
+                    color: isActive
+                        ? primaryColor
+                        : theme.textTheme.bodyMedium?.color,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
-      onTap: () => onMenuSelected(menu),
     );
   }
 }

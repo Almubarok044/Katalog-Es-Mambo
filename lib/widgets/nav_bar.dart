@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../features/home/homepage.dart';
+import 'package:esmambolasmi/features/home/home_screen.dart';
 
 class ResponsiveNavbar extends StatelessWidget implements PreferredSizeWidget {
   final MenuType activeMenu;
-  final Function(MenuType) onMenuSelected;
+  final void Function(MenuType) onMenuSelected;
 
   const ResponsiveNavbar({
     super.key,
@@ -36,9 +36,9 @@ class ResponsiveNavbar extends StatelessWidget implements PreferredSizeWidget {
       actions: isMobile
           ? []
           : [
-              navbarButton(context, MenuType.home, "Home"),
-              navbarButton(context, MenuType.product, "Product"),
-              navbarButton(context, MenuType.about, "About"),
+              navbarButton(context, MenuType.home, "Beranda"),
+              navbarButton(context, MenuType.product, "Produk"),
+              navbarButton(context, MenuType.about, "Tentang"),
               const SizedBox(width: 20),
             ],
     );
