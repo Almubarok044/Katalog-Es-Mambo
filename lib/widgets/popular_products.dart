@@ -1,5 +1,6 @@
 import 'package:esmambolasmi/features/products/screens/esjelly_screen.dart';
 import 'package:esmambolasmi/features/products/screens/esmambo_screen.dart';
+import 'package:esmambolasmi/features/products/screens/kue_screen.dart';
 import 'package:esmambolasmi/features/products/widgets/popularproducts_card.dart';
 import 'package:esmambolasmi/features/products/screens/products_screen.dart';
 import 'package:esmambolasmi/widgets/section_title.dart';
@@ -50,6 +51,13 @@ class PopularProducts extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => const EsJellyScreen(),
+                            ),
+                          );
+                        } else if (demoProducts[index].category.contains("Kue")) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const KueScreen(),
                             ),
                           );
                         }

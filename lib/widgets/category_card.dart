@@ -8,7 +8,7 @@ class Categories extends StatelessWidget {
     final theme = Theme.of(context);
     List<Map<String, dynamic>> categories = [
       {"icon": Icons.icecream, "text": "Es Mambo"},
-      {"icon": Icons.bakery_dining, "text": "Kue"},
+      {"icon": Icons.bakery_dining, "text": "Kue Kering"},
       {"icon": Icons.bubble_chart, "text": "Es Jelly"},
     ];
 
@@ -58,11 +58,7 @@ class Categories extends StatelessWidget {
 }
 
 class CategoryCard extends StatelessWidget {
-  const CategoryCard({
-    super.key,
-    required this.icon,
-    required this.text,
-  });
+  const CategoryCard({super.key, required this.icon, required this.text});
 
   final IconData icon;
   final String text;

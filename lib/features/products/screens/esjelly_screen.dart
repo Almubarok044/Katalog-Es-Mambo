@@ -82,21 +82,21 @@ class _EsJellyScreenState extends State<EsJellyScreen> {
                         children: [
                           _buildProductCard(
                             context,
-                            "Strawberry",
-                            "🍓",
-                            "Jelly stroberi dengan sensasi kenyal yang seru, perpaduan manis dan asam segarnya bikin nagih!",
-                            "assets/product/esjelly/strawberry.png",
+                            "Anggur",
+                            "🍇",
+                            "Jelly anggur dengan perpaduan rasa buah yang segar dan manis alami. Sensasi minuman ini lebih istimewa!",
+                            "assets/product/esjelly/anggur.png",
                           ),
                           _buildProductCard(
                             context,
-                            "Melon",
-                            "🍈",
-                            "Jelly melon yang lembut dan dingin, kenyalnya pas dengan aroma harum yang menyegarkan.",
-                            "assets/product/esjelly/melon.png",
+                            "Cappuccino",
+                            "☕",
+                            "Jelly cappuccino dengan perpaduan kopi ringan dan krim manis. Beda dari minuman biasa!",
+                            "assets/product/esjelly/cappuccino.png",
                           ),
                           _buildProductCard(
                             context,
-                            "Coklat",
+                            "Chocolate",
                             "🍫",
                             "Jelly cokelat creamy dengan tekstur kenyal yang unik. Manisnya lembut, nikmat diminum langsung dari botol!",
                             "assets/product/esjelly/coklat.png",
@@ -110,17 +110,17 @@ class _EsJellyScreenState extends State<EsJellyScreen> {
                           ),
                           _buildProductCard(
                             context,
-                            "Cappuccino",
-                            "☕",
-                            "Jelly cappuccino dengan perpaduan kopi ringan dan krim manis. Beda dari minuman biasa!",
-                            "assets/product/esjelly/cappuccino.png",
+                            "Melon",
+                            "🍈",
+                            "Jelly melon yang lembut dan dingin, kenyalnya pas dengan aroma harum yang menyegarkan.",
+                            "assets/product/esjelly/melon.png",
                           ),
                           _buildProductCard(
                             context,
-                            "Anggur",
-                            "🍇",
-                            "Jelly anggur dengan perpaduan rasa buah yang segar dan manis alami. Sensasi minuman ini lebih istimewa!",
-                            "assets/product/esjelly/anggur.png",
+                            "Strawberry",
+                            "🍓",
+                            "Jelly stroberi dengan sensasi kenyal yang seru, perpaduan manis dan asam segarnya bikin nagih!",
+                            "assets/product/esjelly/strawberry.png",
                           ),
                         ],
                       ),
@@ -172,9 +172,8 @@ class _EsJellyScreenState extends State<EsJellyScreen> {
           // ==== GAMBAR ====
           ClipRRect(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(18)),
-            child: Container(
-              height: 200,
-              padding: const EdgeInsets.all(16),
+            child: SizedBox(
+              height: 230,
               child: Image.asset(img, fit: BoxFit.contain),
             ),
           ),

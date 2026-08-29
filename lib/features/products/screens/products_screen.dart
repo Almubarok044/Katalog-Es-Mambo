@@ -1,5 +1,6 @@
 import 'package:esmambolasmi/features/products/screens/esjelly_screen.dart';
 import 'package:esmambolasmi/features/products/screens/esmambo_screen.dart';
+import 'package:esmambolasmi/features/products/screens/kue_screen.dart';
 import 'package:esmambolasmi/features/products/widgets/products_card.dart';
 import 'package:esmambolasmi/widgets/footer.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,12 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
   String selectedCategory = "Semua";
 
-  final List<String> categories = ["Semua", "Es Mambo", "Es Jelly", "Kue"];
+  final List<String> categories = [
+    "Semua",
+    "Kue Kering",
+    "Es Jelly",
+    "Es Mambo",
+  ];
 
   // ================= FILTER LOGIC =================
   List<Product> get filteredProducts {
@@ -209,6 +215,14 @@ class _ProductsScreenState extends State<ProductsScreen> {
                                     MaterialPageRoute(
                                       builder: (context) =>
                                           const EsJellyScreen(),
+                                    ),
+                                  );
+                                } else if (filteredProducts[index].category
+                                    .contains("Kue Kering")) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const KueScreen(),
                                     ),
                                   );
                                 }

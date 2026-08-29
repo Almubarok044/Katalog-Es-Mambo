@@ -160,16 +160,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 40),
                 CarouselSlider(
                   items: [
+                    'assets/product/esmambo/blueberry.jpg',
+                    'assets/product/esmambo/bubble_gum.jpg',
                     'assets/product/esmambo/coklat.jpg',
-                    'assets/product/esmambo/tiramisu.jpg',
-                    'assets/product/esmambo/taro.jpg',
-                    'assets/product/esmambo/red_velvet.jpg',
-                    'assets/product/esmambo/strawberry.jpg',
                     'assets/product/esmambo/green_tea.jpg',
                     'assets/product/esmambo/mangga.jpg',
-                    'assets/product/esmambo/bubble_gum.jpg',
                     'assets/product/esmambo/oreo.jpg',
-                    'assets/product/esmambo/blueberry.jpg',
+                    'assets/product/esmambo/red_velvet.jpg',
+                    'assets/product/esmambo/strawberry.jpg',
+                    'assets/product/esmambo/taro.jpg',
+                    'assets/product/esmambo/tiramisu.jpg',
                   ].map((path) => _buildProductCard(path)).toList(),
                   options: CarouselOptions(
                     autoPlay: true,
@@ -399,12 +399,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildEsJellyGrid(BuildContext context) {
     final isDesktop = MediaQuery.of(context).size.width > 800;
     final items = [
-      'assets/product/esjelly/coklat1.png',
-      'assets/product/esjelly/cappuccino1.png',
-      'assets/product/esjelly/mangga1.png',
-      'assets/product/esjelly/strawberry1.png',
-      'assets/product/esjelly/melon1.png',
       'assets/product/esjelly/anggur1.png',
+      'assets/product/esjelly/cappuccino1.png',
+      'assets/product/esjelly/coklat1.png',
+      'assets/product/esjelly/mangga1.png',
+      'assets/product/esjelly/melon1.png',
+      'assets/product/esjelly/strawberry1.png',
     ];
 
     return isDesktop

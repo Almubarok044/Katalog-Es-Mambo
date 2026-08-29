@@ -61,11 +61,15 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
+    # -- Backgrounds --
     - assets/background/background.png
 
+    # -- Icons --
+    - assets/icon/EsJelly.png
     - assets/icon/EsMamboLasmi.png
     - assets/icon/JamBuka.png
 
+    # -- Products: Es Jelly --
     - assets/product/esjelly/anggur.png
     - assets/product/esjelly/anggur1.png
     - assets/product/esjelly/cappuccino.png
@@ -81,6 +85,7 @@ flutter:
     - assets/product/esjelly/strawberry.png
     - assets/product/esjelly/strawberry1.png
 
+    # -- Products: Es Mambo --
     - assets/product/esmambo/blueberry.jpg
     - assets/product/esmambo/blueberry.png
     - assets/product/esmambo/bubble_gum.jpg
@@ -104,15 +109,25 @@ flutter:
     - assets/product/esmambo/tiramisu.jpg
     - assets/product/esmambo/tiramisu.png
 
+    # -- Products: Kue --
+    - assets/product/kue/bombolonigreentea/bombolonigreentea.png
     - assets/product/kue/hampers/hamperskue1.png
     - assets/product/kue/hampers/hamperskue2.png
     - assets/product/kue/hampers/hamperskue3.png
     - assets/product/kue/hampers/hamperskue4.png
     - assets/product/kue/hampers/hamperskue5.png
     - assets/product/kue/hampers/hamperskue6.png
+    - assets/product/kue/kacang/kacangbijiwijen.png
+    - assets/product/kue/kastengel/kastengel.png
+    - assets/product/kue/nastar/nastargreentea.png
     - assets/product/kue/nastar/nastargulunguksedang.png
+    - assets/product/kue/nastar/nastarkeju.png
     - assets/product/kue/nastar/nastaroriginal.png
-    - assets/product/kue/putrisalju/putrisaljuuksedang.png
+    - assets/product/kue/nastar/nastaroriginaldenganwadahhitam.png
+    - assets/product/kue/palmcheese/palmcheese.png
+    - assets/product/kue/putrisalju/putrisalju.png
+    - assets/product/kue/redvelvet/redvelvet.png
+    - assets/product/kue/sagukeju/sagukeju.png
 
     # - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
