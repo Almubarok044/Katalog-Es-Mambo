@@ -15,15 +15,11 @@ class AppTheme {
       elevation: 2,
       shadowColor: Colors.black26,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(25),
-        ),
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(25)),
       ),
     ),
 
-    drawerTheme: const DrawerThemeData(
-      backgroundColor: Color(0xFFFFF8E7),
-    ),
+    drawerTheme: const DrawerThemeData(backgroundColor: Color(0xFFFFF8E7)),
 
     iconTheme: const IconThemeData(
       color: Color(0xFF5D4037), // Dark brown icons
@@ -31,11 +27,16 @@ class AppTheme {
 
     textTheme: GoogleFonts.outfitTextTheme(
       const TextTheme(
-        bodyMedium: TextStyle(color: Color(0xFF4E342E)), // Dark brown text for better readability
-        titleLarge: TextStyle(color: Color(0xFF3E2723), fontWeight: FontWeight.bold),
+        bodyMedium: TextStyle(
+          color: Color(0xFF4E342E),
+        ), // Dark brown text for better readability
+        titleLarge: TextStyle(
+          color: Color(0xFF3E2723),
+          fontWeight: FontWeight.bold,
+        ),
       ),
     ),
-    
+
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: Color(0xFFBC6C25), // Deeper earthy tone
       foregroundColor: Colors.white,
@@ -55,9 +56,7 @@ class AppTheme {
       elevation: 2,
       shadowColor: Colors.black54,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(25),
-        ),
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(25)),
       ),
     ),
 
@@ -66,18 +65,17 @@ class AppTheme {
       secondary: Color(0xFFFAEDCD),
     ),
 
-    drawerTheme: const DrawerThemeData(
-      backgroundColor: Color(0xFF1E1814),
-    ),
+    drawerTheme: const DrawerThemeData(backgroundColor: Color(0xFF1E1814)),
 
-    iconTheme: const IconThemeData(
-      color: Color(0xFFE6CCB2),
-    ),
+    iconTheme: const IconThemeData(color: Color(0xFFE6CCB2)),
 
     textTheme: GoogleFonts.outfitTextTheme(
       const TextTheme(
         bodyMedium: TextStyle(color: Color(0xFFE6CCB2)),
-        titleLarge: TextStyle(color: Color(0xFFFAEDCD), fontWeight: FontWeight.bold),
+        titleLarge: TextStyle(
+          color: Color(0xFFFAEDCD),
+          fontWeight: FontWeight.bold,
+        ),
       ),
     ),
 
@@ -86,7 +84,7 @@ class AppTheme {
         return const Color(0xFFD4A373);
       }),
     ),
-    
+
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: Color(0xFFD4A373),
       foregroundColor: Color(0xFF1A1410),

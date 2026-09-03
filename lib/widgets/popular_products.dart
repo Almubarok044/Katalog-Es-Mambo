@@ -4,7 +4,7 @@ import 'package:esmambolasmi/features/products/screens/kue_screen.dart';
 import 'package:esmambolasmi/features/products/widgets/popularproducts_card.dart';
 import 'package:esmambolasmi/features/products/screens/products_screen.dart';
 import 'package:esmambolasmi/widgets/section_title.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class PopularProducts extends StatelessWidget {
   const PopularProducts({super.key});

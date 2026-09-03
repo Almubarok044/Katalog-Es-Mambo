@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class ProductsCard extends StatefulWidget {
   const ProductsCard({super.key, required this.product, required this.onPress});

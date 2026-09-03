@@ -1,6 +1,6 @@
 import 'package:esmambolasmi/features/social_media/social_media.dart';
 import 'package:esmambolasmi/widgets/footer.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AboutScreen extends StatelessWidget {
